@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'MainApp/leaderboard_style.css' %}">
+        <title>LeaderBoard!</title>
+    </head>
+    <body>
+        <div class="main-border">
+            <div class="header">
+                <h1>LeaderBoard!</h1>
+            </div>
+            <div class="l-table">
+                <table>
+                    <tr>
+                        <th class="n-c">Name</th>
+                        <th class="p-c">Point</th>
+                    </tr>
+                    {% for champ in champions %}
+                        <tr>
+                            <td class="n-r">{{ champ.name }}</td>
+                            <td class="p-r">{{ champ.point }}</td>
+                        </tr>
+                    {% endfor %}
+                </table
+            </div>
+            <div class="footer">
+                <a href="/">HomePage!</a>
+            </div>
+        </div>
+    </body>
+</html>

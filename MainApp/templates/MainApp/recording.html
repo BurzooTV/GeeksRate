@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'MainApp/recording_style.css' %}">
+        <title>Record Your Rate!</title>
+    </head>
+    <body>
+        <div class="main-border">
+            <div class="cong-img">
+                <img src="{% static 'MainApp/Images/ccon.png' %}">
+            </div>
+            <div class="main">
+                <h1>Record Your Rate!</h1>
+                <span>POINT: {{ point }}</span><br>
+                <form method="POST" alt="">
+                {% csrf_token %}
+                    <input type="text" name="chname" id="chname" placeholder="Enter Your Name"><br>
+                    <input type="submit" value="Accept!">
+                </form>
+            </div>
+            <div class="err-msg">
+                <p>{{ error_msg }}</p>
+            </div>
+        </div>
+    </body>
+</html>

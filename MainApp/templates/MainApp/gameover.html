@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'MainApp/gameover_style.css' %}">
+        <title>Geek's Rate!</title>
+    </head>
+    <body>
+        <div class="main-border">
+            <div class="go-img">
+                <img src="{% static 'MainApp/Images/Game_Over.gif' %}" alt="Game Over">
+            </div>
+            <div class="back">
+                <a href="/">Try Again!</a>
+            </div>
+        </div>
+    </body>
+</html>

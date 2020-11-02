@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'MainApp/questions_style.css' %}">
+        <title>Geek's Rate!</title>
+    </head>
+    <body>
+        <div class="main-border">
+            <div class="header">
+                <div class=x-border>
+                    {% if x_img >= 1 %}
+                    <img src="{% static 'MainApp/Images/RedX.png' %}" alt="Red X">
+                    {% else %}
+                    <img src="{% static 'MainApp/Images/WX.png' %}" alt="White X">
+                    {% endif %}
+
+                    {% if x_img >= 2 %}
+                    <img src="{% static 'MainApp/Images/RedX.png' %}" alt="Red X">
+                    {% else %}
+                    <img src="{% static 'MainApp/Images/WX.png' %}" alt="White X">
+                    {% endif %}
+
+                    {% if x_img >= 3 %}
+                    <img src="{% static 'MainApp/Images/RedX.png' %}" alt="Red X">
+                    {% else %}
+                    <img src="{% static 'MainApp/Images/WX.png' %}" alt="White X">
+                    {% endif %}
+                </div>
+            </div>
+            <div class=border>
+                <div class="main">
+                    <h1>{{ question.question_title }}</h1>
+                    <p>{{ question.question_text }}</p>
+                    <div class="c-radios">
+                        <form method="POST" alt="">
+                            {% csrf_token %}
+                            {% for choice in question.choices_set.all %}
+                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.choice_text }}">
+                            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+                            {% endfor %}
+                            <input type="submit" class="b-submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+                <div class="footer">
+                    <h3>POINT</h3>
+                    <span>{{ point }}</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
